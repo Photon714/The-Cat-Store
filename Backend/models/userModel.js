@@ -4,7 +4,7 @@ const userSchema = mongoose.Schema(
     username: {
       type: String,
       required: [true, "please enter the username"],
-      unique: [true, "This username has been used already "],
+      unique: true,
     },
     password: {
       type: String,
@@ -12,7 +12,7 @@ const userSchema = mongoose.Schema(
     },
   },
   {
-    timestamps: [true],
+    timestamps: true,
   },
 );
 module.exports = mongoose.model("User", userSchema);
