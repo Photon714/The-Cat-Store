@@ -1,11 +1,11 @@
 const asyncHandler = require("express-async-handler"); // use it to avoid typing try and catch every time
 const User = require("../models/userModel.js");
 const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken"); //used to provide access to the logged in user
+const jwt = require("jsonwebtoken"); //used to provide access to the logged in user or work with access token
+
 //@desc POST user
 //@route POST/api/user/register
 //@access public
-
 const registerUser = asyncHandler(async (req, res) => {
   const { username, password } = req.body;
   if (!username || !password) {
@@ -34,7 +34,6 @@ const registerUser = asyncHandler(async (req, res) => {
 //@desc POST user
 //@route POST/api/user/login
 //@access public
-
 const loginUser = asyncHandler(async (req, res) => {
   const { username, password } = req.body;
   if (!username || !password) {
@@ -45,10 +44,8 @@ const loginUser = asyncHandler(async (req, res) => {
   if (user && (await bcrypt.compare(password, user.password))) {
     const accessToken = jwt.sign(
       {
-        user: {
-          username: user.username,
-          id: user.id,
-        },
+        username: user.username,
+        id: user.id,
       },
       process.env.ACCESS_TOKEN_SECRET,
       {
@@ -62,8 +59,8 @@ const loginUser = asyncHandler(async (req, res) => {
   }
 });
 
-//@desc POST CurrentUser
-//@route POST/api/user/current
+//@desc GET CurrentUser
+//@route GET/api/user/current
 //@access private
 
 const currentUser = asyncHandler(async (req, res) => {
