@@ -6,9 +6,9 @@ const {
   changeItems,
   deleteItems,
   getSingleItem,
-} = require("../Controller/UI-controller.js");
+} = require("../Controller/cat-controller.js");
 
-const validateToken = require("../ErrorHandler/validateToken.js");
+const validateToken = require("../Middleware/validateToken.js");
 
 router.use(validateToken); //now every contact related change will require token validation and loggin
 

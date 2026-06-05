@@ -39,6 +39,12 @@ const errorHandler = (err, req, res, next) => {
       break;
 
     default:
+      console.log("No Error, All good !"); // Or log the unexpected error
+      res.json({
+        title: "UNKNOWN ERROR",
+        message: err.message,
+        stackTree: err.stack,
+      });
       break;
   }
 };
