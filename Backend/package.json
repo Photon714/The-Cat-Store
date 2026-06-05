@@ -1,0 +1,33 @@
+{
+  "name": "the-cat-store",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/Photon714/The-Cat-Store#readme",
+  "bugs": {
+    "url": "https://github.com/Photon714/The-Cat-Store/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Photon714/The-Cat-Store.git"
+  },
+  "license": "ISC",
+  "author": "The Cat Store Owner",
+  "type": "commonjs",
+  "main": "Stuff.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "express-async-handler": "^1.2.0",
+    "jsonwebtoken": "^9.0.3",
+    "mongodb": "^7.2.0",
+    "mongoose": "^9.6.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
