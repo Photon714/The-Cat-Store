@@ -8,16 +8,20 @@ const validateToken = asyncHandler(async (req, res, next) => {
   let token;
   let authHeader = req.headers.Authorization || req.headers.authorization;
   if (authHeader && authHeader.startsWith("Bearer")) {
-    token = authHeader.split(" ")[1];
-    jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, decoded) => {
-      if (err) {
-        res.status(400);
-        throw new Error("User is not autorized");
-      }
-      req.user = decoded.user; //so now the req.user will contain the current user data
-      next();
-    });
-
+    try {
+      token = authHeader.split(" ")[1];
+      jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, decoded) => {
+        if (err) {
+          res.status(400);
+          throw new Error("User is not autorized");
+        }
+        req.user = decoded; //so now the req.user will contain the current user data
+        next();
+      });
+    } catch (error) {
+      res.status(401);
+      throw new Error("User is not authorized token failed");
+    }
     if (!token) {
       res.status(400);
       throw new Error("user is not authorized");
