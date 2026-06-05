@@ -1,184 +1,178 @@
-const catsData = [
+const cats = [
+  // --- THE KITTENS ---
   {
-    id: 1,
     name: "Luna",
-    species: "Persian",
-    image: "/images/cats/persian.jpg",
-    price: 1200.0,
-    description:
-      "Known for their luxurious long coats and sweet, gentle, and quiet personalities. Perfect for a relaxed home.",
+    breed: "Persian",
+    age: 2, // 2 months old
+    price: 450,
+    description: "A fluffy, gentle little cloud who loves to nap in sunbeams.",
+    image: "https://loremflickr.com/400/400/persian,kitten",
   },
   {
-    id: 2,
-    name: "Oliver",
-    species: "Maine Coon",
-    image: "/images/cats/mainecoon.jpg",
-    price: 1500.0,
-    description:
-      "The gentle giants of the cat world. They are heavily boned, muscular, and have a thick, weather-resistant coat.",
-  },
-  {
-    id: 3,
-    name: "Cleo",
-    species: "Siamese",
-    image: "/images/cats/siamese.jpg",
-    price: 800.0,
-    description:
-      "Highly intelligent, vocal, and affectionate. They feature striking blue almond-shaped eyes and a sleek, pointed coat.",
-  },
-  {
-    id: 4,
     name: "Milo",
-    species: "Ragdoll",
-    image: "/images/cats/ragdoll.jpg",
-    price: 1100.0,
+    breed: "Maine Coon",
+    age: 3,
+    price: 600,
     description:
-      "Famous for their docile temperament and tendency to go limp like a ragdoll when picked up.",
+      "Already getting big! Very playful and has adorable ear tufts.",
+    image: "https://loremflickr.com/400/400/mainecoon,kitten",
   },
   {
-    id: 5,
-    name: "Simba",
-    species: "Bengal",
-    image: "/images/cats/bengal.jpg",
-    price: 2500.0,
+    name: "Oliver",
+    breed: "Siamese",
+    age: 2,
+    price: 400,
     description:
-      "Looks like a miniature leopard! Highly active, playful, and loves climbing and water.",
+      "Very vocal and affectionate. Will follow you everywhere you go.",
+    image: "https://loremflickr.com/400/400/siamese,kitten",
   },
   {
-    id: 6,
-    name: "Anubis",
-    species: "Sphynx",
-    image: "/images/cats/sphynx.jpg",
-    price: 1800.0,
-    description:
-      "Hairless, wrinkled, and incredibly affectionate. They are known for their extroverted, dog-like behavior.",
+    name: "Leo",
+    breed: "Bengal",
+    age: 4,
+    price: 850,
+    description: "Extremely energetic with beautiful leopard-like spots.",
+    image: "https://loremflickr.com/400/400/bengal,kitten",
   },
   {
-    id: 7,
     name: "Bella",
-    species: "Abyssinian",
-    image: "/images/cats/abyssinian.jpg",
-    price: 900.0,
+    breed: "Ragdoll",
+    age: 3,
+    price: 550,
     description:
-      "One of the oldest known breeds. They are elegant, highly active, and exceptionally curious.",
+      "True to her breed, she goes completely limp and purrs when picked up.",
+    image: "https://loremflickr.com/400/400/ragdoll,kitten",
   },
   {
-    id: 8,
-    name: "Winston",
-    species: "British Shorthair",
-    image: "/images/cats/britishshorthair.jpg",
-    price: 1000.0,
-    description:
-      "Chunky, teddy-bear-like cats with a dense, plush coat and an easygoing, undemanding nature.",
+    name: "Charlie",
+    breed: "British Shorthair",
+    age: 2,
+    price: 500,
+    description: "Chubby cheeks and a very calm, polite demeanor.",
+    image: "https://loremflickr.com/400/400/britishshorthair,kitten",
   },
   {
-    id: 9,
+    name: "Chloe",
+    breed: "Scottish Fold",
+    age: 3,
+    price: 700,
+    description: "Sweet girl with perfectly folded ears and big, round eyes.",
+    image: "https://loremflickr.com/400/400/scottishfold,kitten",
+  },
+  {
+    name: "Max",
+    breed: "Sphynx",
+    age: 4,
+    price: 900,
+    description:
+      "Hairless, warm like a little peach, and absolutely loves cuddles.",
+    image: "https://loremflickr.com/400/400/sphynx,kitten",
+  },
+  {
+    name: "Lily",
+    breed: "Abyssinian",
+    age: 3,
+    price: 650,
+    description:
+      "Highly intelligent and curious. Will investigate every box in your house.",
+    image: "https://loremflickr.com/400/400/abyssinian,kitten",
+  },
+  {
     name: "Nala",
-    species: "Scottish Fold",
-    image: "/images/cats/scottishfold.jpg",
-    price: 1300.0,
+    breed: "Russian Blue",
+    age: 2,
+    price: 450,
     description:
-      "Recognized by their unique folded ears, giving them an owl-like appearance. Sweet and adaptable.",
+      "Shy at first, but incredibly loyal with a beautiful silver coat.",
+    image: "https://loremflickr.com/400/400/russianblue,kitten",
   },
   {
-    id: 10,
-    name: "Boris",
-    species: "Siberian",
-    image: "/images/cats/siberian.jpg",
-    price: 1600.0,
+    name: "Simba",
+    breed: "Munchkin",
+    age: 4,
+    price: 800,
     description:
-      "A large, powerful breed from Russia with a thick triple coat. Often considered hypoallergenic.",
+      "Tiny legs, massive personality. Loves to zoom down the hallways.",
+    image: "https://loremflickr.com/400/400/munchkin,kitten",
   },
   {
-    id: 11,
-    name: "Freya",
-    species: "Norwegian Forest Cat",
-    image: "/images/cats/norwegian.jpg",
-    price: 1400.0,
+    name: "Cleo",
+    breed: "American Shorthair",
+    age: 2,
+    price: 300,
     description:
-      "Built to survive cold climates, these strong climbers have a beautiful, bushy tail and waterproof coat.",
+      "A classic tabby kitten with a great balance of playfulness and chill.",
+    image: "https://loremflickr.com/400/400/tabby,kitten",
   },
   {
-    id: 12,
-    name: "Sasha",
-    species: "Russian Blue",
-    image: "/images/cats/russianblue.jpg",
-    price: 950.0,
-    description:
-      "Elegant and reserved, featuring a stunning, plush silvery-blue coat and brilliant green eyes.",
+    name: "Daisy",
+    breed: "Norwegian Forest Cat",
+    age: 3,
+    price: 550,
+    description: "Thick, waterproof coat. Loves climbing high furniture.",
+    image: "https://loremflickr.com/400/400/norwegianforest,kitten",
   },
   {
-    id: 13,
-    name: "Pixie",
-    species: "Devon Rex",
-    image: "/images/cats/devonrex.jpg",
-    price: 1200.0,
-    description:
-      "Features a unique wavy coat, oversized ears, and a mischievous, impish personality.",
-  },
-  {
-    id: 14,
-    name: "Snowball",
-    species: "Himalayan",
-    image: "/images/cats/himalayan.jpg",
-    price: 1050.0,
-    description:
-      "A cross between a Persian and a Siamese. They have the Persian's long hair and the Siamese's color points.",
-  },
-  {
-    id: 15,
     name: "Jasper",
-    species: "American Shorthair",
-    image: "/images/cats/americanshorthair.jpg",
-    price: 600.0,
-    description:
-      "A working cat known for longevity, robust health, and a quiet, even-tempered disposition.",
+    breed: "Siberian",
+    age: 4,
+    price: 600,
+    description: "Hypoallergenic coat! Very sturdy and loves playing in water.",
+    image: "https://loremflickr.com/400/400/siberian,kitten",
   },
   {
-    id: 16,
+    name: "Oscar",
+    breed: "Birman",
+    age: 3,
+    price: 500,
+    description: "Stunning blue eyes and little white 'gloves' on his paws.",
+    image: "https://loremflickr.com/400/400/birman,kitten",
+  },
+  {
+    name: "Mia",
+    breed: "Himalayan",
+    age: 2,
+    price: 450,
+    description: "A gorgeous mix of Persian fluff and Siamese colors.",
+    image: "https://loremflickr.com/400/400/himalayan,kitten",
+  },
+
+  // --- THE ADULTS ---
+  {
+    name: "Loki",
+    breed: "Maine Coon",
+    age: 36, // 3 years old
+    price: 250,
+    description:
+      "A majestic, fully-grown gentle giant. Very relaxed and great with kids.",
+    image: "https://loremflickr.com/400/400/mainecoon,cat",
+  },
+  {
     name: "Shadow",
-    species: "Bombay",
-    image: "/images/cats/bombay.jpg",
-    price: 850.0,
-    description:
-      "Bred to look like a miniature black panther. They are completely black, including their nose and paw pads.",
+    breed: "Bombay",
+    age: 24, // 2 years old
+    price: 150,
+    description: "Looks like a mini panther. Very affectionate lap cat.",
+    image: "https://loremflickr.com/400/400/blackcat",
   },
   {
-    id: 17,
-    name: "Mocha",
-    species: "Burmese",
-    image: "/images/cats/burmese.jpg",
-    price: 750.0,
+    name: "Garfield",
+    breed: "Exotic Shorthair",
+    age: 48, // 4 years old
+    price: 200,
     description:
-      "A solidly built cat with a sleek, glossy coat. Extremely social and fiercely loyal to their humans.",
+      "Lazy, loves food, and prefers sleeping over playing. Low energy.",
+    image: "https://loremflickr.com/400/400/orange,cat",
   },
   {
-    id: 18,
-    name: "Pharaoh",
-    species: "Egyptian Mau",
-    image: "/images/cats/egyptianmau.jpg",
-    price: 1150.0,
+    name: "Stella",
+    breed: "Ragdoll",
+    age: 18, // 1.5 years old
+    price: 300,
     description:
-      "The only naturally spotted domestic cat. They are incredibly fast runners with highly musical voices.",
-  },
-  {
-    id: 19,
-    name: "Zoe",
-    species: "Oriental Shorthair",
-    image: "/images/cats/oriental.jpg",
-    price: 900.0,
-    description:
-      "Closely related to the Siamese but comes in over 300 color and pattern combinations. Very vocal and athletic.",
-  },
-  {
-    id: 20,
-    name: "Choco",
-    species: "Birman",
-    image: "/images/cats/birman.jpg",
-    price: 1250.0,
-    description:
-      "The 'Sacred Cat of Burma'. Known for their striking blue eyes, pale body, and pure white paws.",
+      "A young adult who is already fully trained and incredibly cuddly.",
+    image: "https://loremflickr.com/400/400/ragdoll,cat",
   },
 ];
 
-module.exports = catsData;
+module.exports = cats;
