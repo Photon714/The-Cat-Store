@@ -3,6 +3,19 @@ const User = require("../models/userModel.js");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken"); //used to provide access to the logged in user or work with access token
 
+function userAccessCode(userName, userId) {
+  return jwt.sign(
+    {
+      username: userName,
+      id: userId,
+    },
+    process.env.ACCESS_TOKEN_SECRET,
+    {
+      expiresIn: "10m", //access token validity
+    },
+  );
+}
+
 //@desc POST user
 //@route POST/api/user/register
 //@access public
@@ -24,7 +37,8 @@ const registerUser = asyncHandler(async (req, res) => {
     password: hashedPassword,
   });
   if (user) {
-    res.status(200).json({ _id: user.id });
+    const accessToken = userAccessCode(user.username, user.id);
+    res.status(200).json({ accessToken });
   } else {
     res.status(400);
     throw new Error("User entered data invalid");
@@ -42,16 +56,7 @@ const loginUser = asyncHandler(async (req, res) => {
   }
   const user = await User.findOne({ username });
   if (user && (await bcrypt.compare(password, user.password))) {
-    const accessToken = jwt.sign(
-      {
-        username: user.username,
-        id: user.id,
-      },
-      process.env.ACCESS_TOKEN_SECRET,
-      {
-        expiresIn: "10m", //access token validity
-      },
-    );
+    const accessToken = userAccessCode(user.username, user.id);
     res.status(200).json({ accessToken });
   } else {
     res.status(401);
