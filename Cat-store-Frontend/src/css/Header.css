@@ -1,0 +1,83 @@
+/* The Main Header Bar */
+.headerContainer {
+  display: flex;
+  justify-content: space-between; /* Pushes Logo to left, Search to middle, Cart to right */
+  align-items: center; /* Vertically centers everything */
+  padding: 15px 40px;
+  background-color: transparent;
+  border-bottom: 2px solid #eaeaea;
+  min-height: 60px;
+  /* Makes the header stay at the top when scrolling */
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* --- LOGO --- */
+.logoArea {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Adds space if you use BOTH an image and text */
+  cursor: pointer;
+}
+
+/* Added styling specifically for when you drop your image in! */
+.logoImage {
+  height: 50px; /* Makes the logo nice and large */
+  width: auto;
+  border-radius: 8px; /* Optional: rounds the logo edges slightly */
+}
+
+.logoArea h2 {
+  margin: 0;
+  color: #111;
+  font-size: 2.2rem; /* Increased from 1.8rem */
+}
+
+/* --- SEARCH BAR --- */
+.searchArea {
+  /* flex: 1 makes it stretch to fill all available empty space */
+  flex: 1;
+  max-width: 700px; /* Stops it from looking absurdly wide on massive monitors */
+  margin: 0 50px; /* Pushes it safely away from the Logo and Cart */
+}
+
+.searchInput {
+  width: 100%;
+  padding: 12px 25px; /* Slightly taller to match the bigger header */
+  font-size: 1.1rem; /* Slightly larger text */
+  border: 2px solid #ccc;
+  border-radius: 30px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.searchInput:focus {
+  border-color: #2e7d32;
+}
+
+/* --- CART --- */
+.cartArea {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* Increased gap slightly for larger elements */
+  padding: 12px 25px; /* Made the button chunkier */
+  background-color: hsla(300, 1%, 14%, 0.418);
+  color: white;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.cartArea:hover {
+  background-color: #333;
+}
+
+.cartIcon {
+  font-size: 1.6rem; /* Massively increased the icon size */
+}
+
+.cartText {
+  font-weight: 600;
+  font-size: 1.1rem; /* Slightly increased to balance the larger icon */
+}
