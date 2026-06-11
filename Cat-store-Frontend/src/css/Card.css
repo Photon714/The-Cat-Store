@@ -71,6 +71,7 @@ p {
   /* Allows up to 4 lines of text now before cutting it off */
   display: -webkit-box;
   -webkit-line-clamp: 4;
+  line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
