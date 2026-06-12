@@ -11,7 +11,7 @@ function userAccessCode(userName, userId) {
     },
     process.env.ACCESS_TOKEN_SECRET,
     {
-      expiresIn: "10m", //access token validity
+      expiresIn: "60m", //access token validity
     },
   );
 }
