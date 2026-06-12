@@ -7,3 +7,64 @@
   max-width: 1900px; /* Optional: Stops the grid from stretching infinitely on massive screens */
   margin: 0 auto; /* Centers the whole gallery on the page */
 }
+/* Keeps the card and button stacked neatly together in their grid cell */
+.cardWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Container to put them side-by-side */
+.cardActionRow {
+  display: flex;
+  width: 100%;
+  gap: 10px;
+  margin-top: 15px; /* Adds space between the card and the buttons */
+}
+
+/* The Number Input (1 Part) */
+.quantityInput {
+  flex: 1;
+  padding: 10px;
+  border: 2px solid #000000;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  outline: none;
+  background-color: white;
+  text-align: center; /* Centers the number nicely */
+}
+
+.quantityInput:focus {
+  border-color: #111;
+}
+
+/* The Button (4 Parts) */
+.galleryAddToCartBtn {
+  flex: 4;
+  padding: 12px;
+  background-color: #111;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.galleryAddToCartBtn:hover {
+  background-color: #333;
+}
+
+/* The temporary popup message */
+.cartAlertMessage {
+  text-align: center;
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  padding: 10px;
+  font-weight: bold;
+  margin: 10px auto;
+  max-width: 400px;
+  border-radius: 5px;
+}
