@@ -6,7 +6,8 @@ const jwt = require("jsonwebtoken"); //used to provide access to the logged in u
 function userAccessCode(userName, userId) {
   return jwt.sign(
     {
-      username: userName,
+      //also called as payload this data
+      username: userName, //basically this jwt means the access token will contain username and user id and using this access token im running the user checks in various cart operations
       id: userId,
     },
     process.env.ACCESS_TOKEN_SECRET,
