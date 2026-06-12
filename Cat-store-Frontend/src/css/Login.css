@@ -1,0 +1,104 @@
+/* --- FULL PAGE BACKGROUND --- */
+.loginContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Subtracts the 80px header height so it perfectly centers in the remaining space */
+  height: calc(100vh - 80px);
+  background-color: #f9f9f9;
+}
+
+/* --- THE WHITE LOGIN CARD --- */
+.loginBox {
+  background-color: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Premium soft shadow */
+  width: 100%;
+  max-width: 400px; /* Keeps the form from getting too wide on desktop */
+  text-align: center;
+}
+
+.loginBox h2 {
+  margin: 0;
+  color: #111;
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.loginBox p {
+  color: #666;
+  margin-top: 8px;
+  margin-bottom: 30px;
+  font-size: 0.95rem;
+}
+
+/* --- THE FORM --- */
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Spaces out the email, password, and button */
+}
+
+.inputField {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 8px;
+}
+
+.inputField label {
+  font-weight: 600;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.inputField input {
+  padding: 12px 15px;
+  border: 2px solid #eaeaea;
+  border-radius: 12px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s ease;
+  font-family: inherit;
+}
+
+/* Turns the border green when the user clicks inside */
+.inputField input:focus {
+  border-color: #2e7d32;
+}
+
+/* --- SUBMIT BUTTON --- */
+.submitButton {
+  background-color: #111;
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-top: 10px;
+}
+
+.submitButton:hover {
+  background-color: #333;
+} /* --- TOGGLE LINKS AT BOTTOM --- */
+.toggleText {
+  margin-top: 25px;
+  font-size: 0.95rem;
+  color: #666;
+}
+
+.toggleLink {
+  color: #2e7d32;
+  font-weight: 700;
+  text-decoration: none; /* Removes the ugly default underline */
+  transition: color 0.2s ease;
+}
+
+.toggleLink:hover {
+  text-decoration: underline; /* Adds it back neatly when hovering */
+  color: #1b5e20;
+}
