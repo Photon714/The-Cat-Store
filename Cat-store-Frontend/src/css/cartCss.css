@@ -1,8 +1,3 @@
-/* =========================================
-   1. PAGE & CONTAINER LAYOUT
-   ========================================= */
-
-/* The absolute full-screen white background */
 .cart-page {
   font-family: Arial, sans-serif;
   width: 100%;
@@ -12,19 +7,17 @@
   padding: 0;
 }
 
-/* The centered box that holds the cart (Creates the empty side space!) */
 .cart-content {
-  width: 85%; /* Leaves 7.5% empty space on the left and right */
-  max-width: 1400px; /* Safety limit for ultra-wide monitors */
-  margin: 40px auto; /* The 'auto' keeps it perfectly centered */
+  width: 85%;
+  max-width: 1400px;
+  margin: 40px auto;
   padding: 40px 50px;
   background-color: #ffffff;
-  border-radius: 16px; /* Soft rounded corners */
-  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08); /* Soft floating shadow */
+  border-radius: 16px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
   box-sizing: border-box;
 }
 
-/* Cart Main Title */
 .cart-content h1 {
   font-size: 36px;
   margin-top: 0;
@@ -40,10 +33,6 @@
   font-weight: bold;
 }
 
-/* =========================================
-   2. INDIVIDUAL CART ITEMS
-   ========================================= */
-
 .cart-items {
   display: flex;
   flex-direction: column;
@@ -51,20 +40,15 @@
 
 .cart-item {
   display: flex;
-  gap: 80px; /* Massive space between the image, text, and price */
+  gap: 80px;
   border-bottom: 1px solid #eee;
   padding: 40px 0;
 }
 
 .cart-item:last-child {
-  border-bottom: none; /* Removes the line under the very last item */
+  border-bottom: none;
 }
 
-/* =========================================
-   3. ITEM COLUMNS
-   ========================================= */
-
-/* Column 1: Image */
 .item-image-container {
   flex: 0 0 300px;
   display: flex;
@@ -79,7 +63,6 @@
   border-radius: 12px;
 }
 
-/* Column 2: Details (Stretches to fill middle) */
 .item-details {
   flex: 1;
 }
@@ -103,10 +86,8 @@
   color: #007600;
 }
 
-/* Column 3: Price */
 .item-price-container {
   flex: 0 0 150px;
-  /* Add these 4 lines to push the button to the bottom! */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -119,16 +100,10 @@
   margin: 0;
 }
 
-/* =========================================
-   4. ADD-ONS & ACTIONS
-   ========================================= */
-
-/* The Custom Name Tag Addon */
 .item-fun-addon {
   color: #333;
 }
 
-/* Action Row (Qty, Delete, Save) */
 .item-actions {
   display: flex;
   align-items: center;
@@ -137,7 +112,6 @@
   margin-top: 10px;
 }
 
-/* Quantity Input Styling */
 .qty-select-container {
   background: #f0f2f2;
   border: 1px solid #d5d9d9;
@@ -159,13 +133,11 @@
   font-size: 18px;
 }
 
-/* Removes the clunky default arrows on number inputs in some browsers */
 .qty-input::-webkit-outer-spin-button,
 .qty-input::-webkit-inner-spin-button {
   margin-left: 5px;
 }
 
-/* Buttons */
 .action-separator {
   color: #ddd;
 }
@@ -183,10 +155,6 @@
   text-decoration: underline;
   color: #c45500;
 }
-
-/* =========================================
-   5. SUBTOTAL & FOOTER
-   ========================================= */
 
 .cart-subtotal {
   text-align: right;
@@ -212,11 +180,6 @@
   text-decoration: underline;
   color: #c45500;
 }
-/* =========================================
-   6. ORDER DA MEOW BUTTONS
-   ========================================= */
-
-/* The base style for both buttons (Amazon-style yellow) */
 .order-meow-btn {
   background-color: #ffd814;
   border: 1px solid #fcd200;
@@ -236,20 +199,20 @@
 
 .order-meow-btn:active {
   background-color: #f0b800;
-  transform: translateY(1px); /* Adds a satisfying "click" animation */
+  transform: translateY(1px);
 }
 
 /* Specific styling for the small button under each cat's price */
 .item-order-btn {
   font-size: 14px;
   padding: 8px 12px;
-  width: 100%; /* Stretches perfectly to the edges of the price column */
+  width: 100%;
   font-weight: 500;
 }
 
 /* Specific styling for the giant checkout button at the bottom */
 .cart-checkout-container {
-  text-align: right; /* Aligns the button to the right, perfectly under the subtotal */
+  text-align: right;
   margin-top: 20px;
   padding-bottom: 10px;
 }
@@ -259,4 +222,146 @@
   padding: 14px 40px;
   font-weight: bold;
   border-radius: 10px;
+}
+.success-btn {
+  background-color: #28a745 !important;
+  border-color: #218838 !important;
+  color: white !important;
+  cursor: default;
+  box-shadow: none !important;
+}
+
+.success-btn:hover,
+.success-btn:active {
+  background-color: #28a745 !important;
+  transform: none !important;
+}
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Makes sure it sits on top of EVERYTHING */
+}
+
+/* The white box in the middle */
+.modal-content {
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  width: 700px;
+  max-width: 90%;
+  position: relative;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.close-modal-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #888;
+}
+
+.close-modal-btn:hover {
+  color: #333;
+}
+
+.animation-scene {
+  margin-top: 40px;
+  height: 350px;
+  position: relative;
+}
+/* Speaker Cat (Now on the LEFT side!) */
+.speaker-cat-container {
+  position: absolute;
+  left: 20px;
+  bottom: 80px;
+}
+.modal-custom-cat {
+  height: 250px;
+  width: auto;
+  object-fit: contain;
+}
+.big-cat {
+  display: flex;
+  justify-content: center;
+}
+
+.gif-cat {
+  width: 130px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transform: scaleX(-1);
+}
+
+.speech-bubble {
+  position: absolute;
+  left: 140px;
+  top: 60px;
+
+  background: #f0f2f2;
+  padding: 15px 20px;
+  border-radius: 20px;
+  border-bottom-left-radius: 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: #007185;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  white-space: nowrap;
+  z-index: 10;
+}
+
+/* The Road (Pushed to the RIGHT to make room for the cat) */
+.road-container {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: calc(100% - 180px);
+  height: 100px;
+}
+
+.road-line {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  border-bottom: 4px dashed #ccc;
+}
+
+.house {
+  position: absolute;
+  right: 0;
+  bottom: 15px;
+  font-size: 50px;
+}
+
+/* The Moving Gift Box */
+.moving-box {
+  position: absolute;
+  left: 0;
+  bottom: 15px;
+  font-size: 40px;
+  animation: driveDownRoad 3s ease-in-out forwards;
+}
+
+/* Box Animation */
+@keyframes driveDownRoad {
+  0% {
+    transform: translateX(0) scale(1);
+  }
+  50% {
+    transform: translateX(200px) translateY(-10px) scale(1.1);
+  }
+  100% {
+    transform: translateX(450px) scale(1);
+  }
 }

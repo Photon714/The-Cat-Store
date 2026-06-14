@@ -6,8 +6,6 @@ import { getCart } from "../Services/cart.js";
 import { updateCartQuantity } from "../Services/cart.js";
 import { deleteTheCat } from "../Services/cart.js";
 
-/*This should be executed when clicked on cart icon */
-
 function ShowCart() {
   const [cartBillis, setCartBillis] = useState([]);
   const [cartMessage, setCartMessage] = useState("");
@@ -16,6 +14,9 @@ function ShowCart() {
     const savedNames = localStorage.getItem("cartCatNames");
     return savedNames ? JSON.parse(savedNames) : {};
   });
+  const [showCheckoutModal, setShowCheckoutModal] = useState(false);
+  const [isOrdered, setIsOrdered] = useState(false); // these both for the green button
+  const [orderedItems, setOrderedItems] = useState({}); //
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -62,11 +63,9 @@ function ShowCart() {
     try {
       await updateCartQuantity(token, itemId, newQuantity);
 
-      // 2. YOUR IDEA: Fetch the freshly updated AND populated cart!
       const freshCart = await getCart(token);
       setCartBillis(freshCart?.items || []);
 
-      // 3. Clear the local typing state so the database data takes over
       setQuantities((prev) => {
         const newQuantities = { ...prev };
         delete newQuantities[itemId];
@@ -78,7 +77,6 @@ function ShowCart() {
         error.response?.data?.message || error.message,
       );
 
-      // Revert if it fails
       const fetchBilli = async () => {
         const fetchedBillis = await getCart(token);
         setCartBillis(fetchedBillis?.items || []);
@@ -91,7 +89,6 @@ function ShowCart() {
   const totalItems = cartBillis.reduce((sum, item) => {
     const cat = item.catId || item.product;
     if (!cat) return sum;
-    // Safely force the ID to be a string
     const actualCatId = (cat._id || cat.id || cat).toString();
     const qty = quantities[actualCatId] || item.quantity || 1;
     return sum + qty;
@@ -101,7 +98,6 @@ function ShowCart() {
     .reduce((sum, item) => {
       const cat = item.catId || item.product;
       if (!cat) return sum;
-      // Safely force the ID to be a string
       const actualCatId = (cat._id || cat.id || cat).toString();
       const price = cat.price || 0;
       const qty = quantities[actualCatId] || item.quantity || 1;
@@ -239,8 +235,20 @@ function ShowCart() {
                       <p className="item-price">
                         ${Number(cat.price || 0).toFixed(2)}
                       </p>
-                      <button className="order-meow-btn item-order-btn">
-                        Order da meow
+                      <button
+                        className={`order-meow-btn item-order-btn ${isOrdered || orderedItems[actualCatId] ? "success-btn" : ""}`}
+                        onClick={() => {
+                          setShowCheckoutModal(true);
+                          setOrderedItems((prev) => ({
+                            ...prev,
+                            [actualCatId]: true,
+                          }));
+                        }}
+                        disabled={isOrdered || orderedItems[actualCatId]}
+                      >
+                        {isOrdered || orderedItems[actualCatId]
+                          ? "Meow on da way"
+                          : "Order da meow"}
                       </button>
                     </div>
                   </div>
@@ -252,8 +260,15 @@ function ShowCart() {
               Subtotal ({totalItems} items): <strong>${cartSubtotal}</strong>
             </div>
             <div className="cart-checkout-container">
-              <button className="order-meow-btn main-order-btn">
-                Order da meow
+              <button
+                className={`order-meow-btn main-order-btn ${isOrdered ? "success-btn" : ""}`}
+                onClick={() => {
+                  setShowCheckoutModal(true);
+                  setIsOrdered(true);
+                }}
+                disabled={isOrdered}
+              >
+                {isOrdered ? "Meow on da way " : "Order da meow"}
               </button>
             </div>
             <div className="cart-disclaimer">
@@ -268,6 +283,42 @@ function ShowCart() {
           </>
         )}
       </div>
+      {showCheckoutModal && (
+        <div
+          className="modal-overlay"
+          onClick={() => setShowCheckoutModal(false)}
+        >
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <button
+              className="close-modal-btn"
+              onClick={() => setShowCheckoutModal(false)}
+            >
+              ✕
+            </button>
+
+            <h2>Purr-fect! Your order is complete.</h2>
+
+            <div className="animation-scene">
+              <div className="speaker-cat-container">
+                <div className="speech-bubble">Cat is on the way</div>
+                <div className="big-cat">
+                  <img
+                    src="/cat.png"
+                    alt="Custom Black Cat"
+                    className="modal-custom-cat"
+                  />
+                </div>
+              </div>
+
+              <div className="road-container">
+                <div className="moving-box">🎁</div>
+                <div className="house">🏠</div>
+                <div className="road-line"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
