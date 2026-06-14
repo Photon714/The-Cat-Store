@@ -1,9 +1,10 @@
 import React from "react";
 import "../css/Header.css";
-
+import { useNavigate } from "react-router-dom";
 function Header() {
+  const navigate = useNavigate();
   const handleCartClick = () => {
-    console.log("Take me to the cart panel!");
+    navigate("/CartPage");
   };
 
   return (
