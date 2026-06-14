@@ -103,18 +103,22 @@ const quantityChange = asyncHandler(async (req, res) => {
     res.status(200);
     throw new Error("Cart does not exists");
   }
+
+  const normalizedCatId = catId.toString();
   const itemIndex = cart.items.findIndex(
-    (item) => item.catId.toString() === catId,
+    (item) => item.catId.toString() === normalizedCatId,
   );
 
   if (itemIndex == -1) {
     res.status(400);
     throw new Error("Item doesnot exists in the cart");
   }
-  const newQuan = cart.items[itemIndex].quantity + quantity;
+  const newQuan = quantity;
 
   if (newQuan <= 0) {
-    cart.items = cart.items.filter((item) => item.catId.toString() !== catId);
+    cart.items = cart.items.filter(
+      (item) => item.catId.toString() !== normalizedCatId,
+    );
   } else {
     cart.items[itemIndex].quantity = newQuan;
   }
