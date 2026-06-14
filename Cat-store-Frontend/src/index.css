@@ -121,10 +121,21 @@ body {
   justify-content: center;
   min-height: 100vh;
 }
-.clock {
-  color: aliceblue;
-  font-size: 12rem;
-  font-weight: bold;
-  text-align: center;
-  font-family: "Roboto", sans-serif;
+/* Add this to index.css or App.css */
+html,
+body,
+#root {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevents horizontal scrollbars */
+}
+
+/* If your main App component has a class of 'App', reset that too */
+.App {
+  max-width: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 50px;
 }
