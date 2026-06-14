@@ -1,0 +1,262 @@
+/* =========================================
+   1. PAGE & CONTAINER LAYOUT
+   ========================================= */
+
+/* The absolute full-screen white background */
+.cart-page {
+  font-family: Arial, sans-serif;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #ffffff;
+  margin: 0;
+  padding: 0;
+}
+
+/* The centered box that holds the cart (Creates the empty side space!) */
+.cart-content {
+  width: 85%; /* Leaves 7.5% empty space on the left and right */
+  max-width: 1400px; /* Safety limit for ultra-wide monitors */
+  margin: 40px auto; /* The 'auto' keeps it perfectly centered */
+  padding: 40px 50px;
+  background-color: #ffffff;
+  border-radius: 16px; /* Soft rounded corners */
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08); /* Soft floating shadow */
+  box-sizing: border-box;
+}
+
+/* Cart Main Title */
+.cart-content h1 {
+  font-size: 36px;
+  margin-top: 0;
+  margin-bottom: 30px;
+  font-weight: normal;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 15px;
+}
+
+.cart-message {
+  font-size: 18px;
+  color: #d40000;
+  font-weight: bold;
+}
+
+/* =========================================
+   2. INDIVIDUAL CART ITEMS
+   ========================================= */
+
+.cart-items {
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-item {
+  display: flex;
+  gap: 80px; /* Massive space between the image, text, and price */
+  border-bottom: 1px solid #eee;
+  padding: 40px 0;
+}
+
+.cart-item:last-child {
+  border-bottom: none; /* Removes the line under the very last item */
+}
+
+/* =========================================
+   3. ITEM COLUMNS
+   ========================================= */
+
+/* Column 1: Image */
+.item-image-container {
+  flex: 0 0 300px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.item-image {
+  max-width: 100%;
+  max-height: 250px;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+/* Column 2: Details (Stretches to fill middle) */
+.item-details {
+  flex: 1;
+}
+
+.item-title {
+  margin: 0 0 10px 0;
+  font-size: 26px;
+  color: #007185;
+  font-weight: bold;
+}
+
+.item-specs {
+  margin: 0 0 8px 0;
+  font-size: 16px;
+  color: #555;
+}
+
+.item-stock {
+  margin: 0 0 15px 0;
+  font-size: 16px;
+  color: #007600;
+}
+
+/* Column 3: Price */
+.item-price-container {
+  flex: 0 0 150px;
+  /* Add these 4 lines to push the button to the bottom! */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.item-price {
+  font-size: 28px;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* =========================================
+   4. ADD-ONS & ACTIONS
+   ========================================= */
+
+/* The Custom Name Tag Addon */
+.item-fun-addon {
+  color: #333;
+}
+
+/* Action Row (Qty, Delete, Save) */
+.item-actions {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+/* Quantity Input Styling */
+.qty-select-container {
+  background: #f0f2f2;
+  border: 1px solid #d5d9d9;
+  border-radius: 8px;
+  padding: 6px 15px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  font-size: 15px;
+}
+
+.qty-input {
+  border: none;
+  background: transparent;
+  margin-left: 10px;
+  outline: none;
+  width: 50px;
+  font-family: inherit;
+  font-size: 18px;
+}
+
+/* Removes the clunky default arrows on number inputs in some browsers */
+.qty-input::-webkit-outer-spin-button,
+.qty-input::-webkit-inner-spin-button {
+  margin-left: 5px;
+}
+
+/* Buttons */
+.action-separator {
+  color: #ddd;
+}
+
+.action-button {
+  background: none;
+  border: none;
+  color: #007185;
+  cursor: pointer;
+  padding: 0;
+  font-size: 16px;
+}
+
+.action-button:hover {
+  text-decoration: underline;
+  color: #c45500;
+}
+
+/* =========================================
+   5. SUBTOTAL & FOOTER
+   ========================================= */
+
+.cart-subtotal {
+  text-align: right;
+  padding: 30px 0 15px 0;
+  font-size: 26px;
+  border-top: 2px solid #ddd;
+  margin-top: 30px;
+}
+
+.cart-disclaimer {
+  font-size: 13px;
+  color: #555;
+  margin-top: 20px;
+  line-height: 1.6;
+}
+
+.link-text {
+  color: #007185;
+  cursor: pointer;
+}
+
+.link-text:hover {
+  text-decoration: underline;
+  color: #c45500;
+}
+/* =========================================
+   6. ORDER DA MEOW BUTTONS
+   ========================================= */
+
+/* The base style for both buttons (Amazon-style yellow) */
+.order-meow-btn {
+  background-color: #ffd814;
+  border: 1px solid #fcd200;
+  border-radius: 8px;
+  color: #0f1111;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 5px rgba(213, 217, 217, 0.5);
+}
+
+.order-meow-btn:hover {
+  background-color: #f7ca00;
+  border-color: #f2c200;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.order-meow-btn:active {
+  background-color: #f0b800;
+  transform: translateY(1px); /* Adds a satisfying "click" animation */
+}
+
+/* Specific styling for the small button under each cat's price */
+.item-order-btn {
+  font-size: 14px;
+  padding: 8px 12px;
+  width: 100%; /* Stretches perfectly to the edges of the price column */
+  font-weight: 500;
+}
+
+/* Specific styling for the giant checkout button at the bottom */
+.cart-checkout-container {
+  text-align: right; /* Aligns the button to the right, perfectly under the subtotal */
+  margin-top: 20px;
+  padding-bottom: 10px;
+}
+
+.main-order-btn {
+  font-size: 18px;
+  padding: 14px 40px;
+  font-weight: bold;
+  border-radius: 10px;
+}
