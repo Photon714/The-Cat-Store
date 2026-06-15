@@ -70,3 +70,11 @@ export const deleteTheCat = async (accessToken, itemId) => {
     return null;
   }
 };
+
+export const VanishCart = async (accessToken) => {
+  const response = await axios.delete("http://localhost:5001/api/cart/vanish", {
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+    },
+  });
+};
