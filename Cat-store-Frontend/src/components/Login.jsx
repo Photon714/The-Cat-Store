@@ -41,7 +41,7 @@ function LogIn() {
     }
   }
   return (
-    <div className="logonContainer">
+    <div className="loginContainer">
       <div className="loginBox">
         <h2>Welcome Back:D</h2>
         <p>Log In to meet the cats :3</p>
@@ -72,13 +72,13 @@ function LogIn() {
               required
             />
           </div>
-          <button type="submit" className="sumbitButton">
+          <button type="submit" className="submitButton">
             Submit
           </button>
         </form>
         <p className="toggleText">
           Don't have an account ?
-          <Link to="/SignUp" className="toggleLink">
+          <Link to="/" className="toggleLink">
             Sign Up
           </Link>
         </p>
