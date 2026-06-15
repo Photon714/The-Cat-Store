@@ -1,5 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
 .cart-page {
-  font-family: Arial, sans-serif;
+  font-family: "Inter", sans-serif;
   width: 100%;
   min-height: 100vh;
   background-color: #ffffff;
@@ -61,6 +62,16 @@
   max-height: 250px;
   object-fit: contain;
   border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+
+  /* 2. Optional Pro-Touch: Smooth animation for hovering */
+  transition:
+    transform 0.1s ease,
+    box-shadow 0.1s ease;
+}
+.item-image:hover {
+  transform: translateY(-2px); /* Lifts the image up by 5 pixels */
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18); /* Makes the shadow deeper */
 }
 
 .item-details {
@@ -76,14 +87,14 @@
 
 .item-specs {
   margin: 0 0 8px 0;
-  font-size: 16px;
+  font-size: 18px;
   color: #555;
 }
 
 .item-stock {
   margin: 0 0 15px 0;
   font-size: 16px;
-  color: #007600;
+  color: hsla(20, 12%, 10%, 0.61);
 }
 
 .item-price-container {
@@ -148,12 +159,13 @@
   color: #007185;
   cursor: pointer;
   padding: 0;
-  font-size: 16px;
+  font-size: 18px;
+  font-weight: 600;
 }
 
 .action-button:hover {
   text-decoration: underline;
-  color: #c45500;
+  color: #b71c1c;
 }
 
 .cart-subtotal {
@@ -212,9 +224,38 @@
 
 /* Specific styling for the giant checkout button at the bottom */
 .cart-checkout-container {
-  text-align: right;
+  display: flex;
+  justify-content: space-between; /* Pushes both buttons to the far right */
+  align-items: center; /* Vertically centers them */
+  gap: 20px; /* Creates perfect spacing between the two buttons */
   margin-top: 20px;
   padding-bottom: 10px;
+}
+.vanish-btn {
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  padding: 14px 30px;
+  font-weight: bold;
+  border-radius: 10px;
+
+  /* Makes it look like a secondary 'danger' action */
+  background-color: transparent;
+  color: #d32f2f;
+  border: 2px solid #d32f2f;
+
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Fills in with red when the user hovers over it */
+.vanish-btn:hover {
+  background-color: #d32f2f;
+  color: white;
+  box-shadow: 0 4px 8px rgba(211, 47, 47, 0.2);
+}
+
+.vanish-btn:active {
+  transform: translateY(1px); /* Gives it that satisfying click feeling */
 }
 
 .main-order-btn {
@@ -364,4 +405,88 @@
   100% {
     transform: translateX(450px) scale(1);
   }
+}
+/* --- 4. NEW: Custom Name Tag Input --- */
+.custom-tag-input {
+  font-family: "Inter", sans-serif;
+  font-size: 16px; /* Much larger and easier to read */
+  padding: 10px 14px; /* Gives the text room to breathe */
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 250px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.custom-tag-input:focus {
+  border-color: #007185; /* Highlights blue when typing */
+}
+/* --- The Label for the Custom Name Tag --- */
+.custom-tag-label {
+  display: inline-flex; /* This aligns the text and the emoji perfectly horizontally */
+  align-items: center;
+  gap: 8px; /* Adds perfect spacing between the cat icon and the text */
+
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 600; /* Makes it slightly bold to stand out */
+  color: #007185; /* Matches your store's blue theme color */
+
+  background-color: #e7f4f5; /* A very soft, subtle blue background */
+  padding: 6px 12px; /* Gives it that modern "pill" or "badge" shape */
+  border-radius: 8px;
+  margin-right: 12px; /* Pushes the input box comfortably away */
+}
+
+/* Optional: Make the cat icon slightly larger than the text */
+.tag-icon {
+  font-size: 16px;
+}
+/* --- NEW: The Wrapper that forces perfect vertical alignment --- */
+.custom-tag-wrapper {
+  display: flex;
+  align-items: center; /* This is the magic bullet that perfectly centers them! */
+  gap: 15px; /* Adds space between the label and the input box */
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+/* --- Update the Label --- */
+.custom-tag-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #007185;
+  background-color: #e7f4f5;
+  padding: 8px 12px;
+  border-radius: 8px;
+
+  /* REMOVE the margin-right we used to have here! */
+}
+
+/* --- Update the Input --- */
+.custom-tag-input {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  padding: 10px 14px;
+  margin: 0 !important;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 250px;
+  outline: none;
+  transition: border-color 0.2s ease;
+
+  /* REMOVE the margin-top and margin-bottom we used to have here! */
+}
+
+.custom-tag-input:focus {
+  border-color: #007185;
 }

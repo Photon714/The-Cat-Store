@@ -54,7 +54,7 @@
 }
 
 .galleryAddToCartBtn:hover {
-  background-color: #333;
+  background-color: #3e3b3b;
 }
 
 /* The temporary popup message */
@@ -67,4 +67,20 @@
   margin: 10px auto;
   max-width: 400px;
   border-radius: 5px;
+}
+/* --- FULL PAGE GALLERY BACKGROUND --- */
+.galleryPageContainer {
+  /* 1. Use MIN-height so it grows if you have lots of cats! */
+  min-height: 100vh;
+
+  /* 2. Remove the flexbox centering so the Header stays at the top! */
+  display: block;
+
+  /* 3. Your background image */
+  background-image: url("/cat4.jpeg");
+  background-size: cover;
+  background-position: center;
+
+  /* 4. This makes the image stay glued to the screen while you scroll down! */
+  background-attachment: fixed;
 }

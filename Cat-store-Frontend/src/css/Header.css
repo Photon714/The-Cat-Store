@@ -1,13 +1,23 @@
 /* The Main Header Bar */
+/* The Main Header Bar */
 .headerContainer {
   display: flex;
-  justify-content: space-between; /* Pushes Logo to left, Search to middle, Cart to right */
-  align-items: center; /* Vertically centers everything */
-  padding: 15px 40px;
-  background-color: transparent;
+  justify-content: space-between;
+  align-items: center;
+
+  /* 1. Remove top/bottom padding so the height controls it perfectly */
+  padding: 0 40px;
+
+  /* 2. Lock the absolute height! It will never squish again. */
+  height: 100px;
+
+  /* 3. This stops borders and padding from changing the total size */
+  box-sizing: border-box;
+
+  /* Make sure it has a solid background so scrolling items hide behind it */
+  background-color: white;
   border-bottom: 2px solid #eaeaea;
-  min-height: 60px;
-  /* Makes the header stay at the top when scrolling */
+
   position: sticky;
   top: 0;
   z-index: 100;
@@ -16,9 +26,26 @@
 /* --- LOGO --- */
 .logoArea {
   display: flex;
-  align-items: center;
-  gap: 15px; /* Adds space if you use BOTH an image and text */
-  cursor: pointer;
+  flex-direction: column; /* This is the magic line that stacks them top-to-bottom! */
+  align-items: center; /* Centers the cat right above the text */
+  justify-content: center;
+  gap: 5px; /* Adds a tiny breathing room between the cat and the text */
+  cursor: pointer; /* Makes it look clickable if you want it to route home later */
+}
+
+/* The Cat Image */
+.brandLogo {
+  width: 70px; /* Adjust this number to make the cat bigger or smaller */
+  height: 50px; /* Keeps the cat from stretching weirdly */
+  border-radius: 10px; /* Optional: rounds the corners of your image slightly */
+}
+
+/* The Text Underneath */
+.brandText {
+  margin: 0;
+  font-size: 1.4rem; /* Slightly smaller so the cat is the star of the show */
+  color: #111;
+  font-weight: 800;
 }
 
 /* Added styling specifically for when you drop your image in! */
@@ -26,12 +53,6 @@
   height: 50px; /* Makes the logo nice and large */
   width: auto;
   border-radius: 8px; /* Optional: rounds the logo edges slightly */
-}
-
-.logoArea h2 {
-  margin: 0;
-  color: #111;
-  font-size: 2.2rem; /* Increased from 1.8rem */
 }
 
 /* --- SEARCH BAR --- */

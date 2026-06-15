@@ -3,19 +3,36 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /* Subtracts the 80px header height so it perfectly centers in the remaining space */
-  height: calc(100vh - 80px);
-  background-color: #f9f9f9;
+  height: calc(100vh); /* Keeps it below your header */
+
+  /* 1. Add your background image url here */
+  background-image: url("/twocats.jpg");
+
+  /* 2. Make sure the image covers the whole space without stretching weirdly */
+  background-size: cover;
+
+  /* 3. Center the most important part of the image */
+  background-position: center;
+
+  /* 4. Stop the image from tiling like a mosaic if the screen is too big */
+  background-repeat: no-repeat;
 }
 
 /* --- THE WHITE LOGIN CARD --- */
 .loginBox {
-  background-color: white;
+  /* 1. Set the background to white, but at 70% opacity (0.7) */
+  background-color: rgba(255, 255, 255, 0.7);
+
+  /* 2. Add the frosted glass blur effect! */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* For Safari support */
+
+  /* 3. Keep the rest of your original CSS exactly the same! */
   padding: 40px;
   border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Premium soft shadow */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   width: 100%;
-  max-width: 400px; /* Keeps the form from getting too wide on desktop */
+  max-width: 400px;
   text-align: center;
 }
 
@@ -55,7 +72,7 @@
 
 .inputField input {
   padding: 12px 15px;
-  border: 2px solid #eaeaea;
+  border: 2px solid #2d2a2a;
   border-radius: 12px;
   font-size: 1rem;
   outline: none;
@@ -70,16 +87,24 @@
 
 /* --- SUBMIT BUTTON --- */
 .submitButton {
+  /* 1. Add this to stop the stretch and center it! */
+  align-self: center;
+
+  /* 2. Optional: Add a specific width if you don't want it to shrink *too* much */
+  width: 150px; /* Adjust this number to make it wider or narrower */
+
   background-color: #111;
   color: white;
   border: none;
   padding: 15px;
+  height: 50px;
   border-radius: 12px;
   font-size: 1.1rem;
   font-weight: 700;
   cursor: pointer;
   transition: background-color 0.2s ease;
   margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .submitButton:hover {
