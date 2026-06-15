@@ -71,13 +71,13 @@ function SignUp() {
               required
             />
           </div>
-          <button type="submit" className="sumbitButton">
+          <button type="submit" className="submitButton">
             Submit
           </button>
         </form>
         <p className="toggleText">
           Already have an account ?
-          <Link to="/" className="toggleLink">
+          <Link to="/Login" className="toggleLink">
             Log In
           </Link>
         </p>
