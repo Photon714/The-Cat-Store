@@ -11,6 +11,7 @@ function ShowAllCats() {
   const [cartMessage, setCartMessage] = useState("");
   const navigate = useNavigate();
   const [quantities, setQuantities] = useState({});
+  const [searchCat, setSearchCat] = useState("");
   useEffect(() => {
     const getCats = async () => {
       const fetchedCats = await fetchCats();
@@ -51,7 +52,7 @@ function ShowAllCats() {
         },
       );
       console.log("Cart updated:", response.data);
-      setCartMessage("Added to cart successfully! 🐾");
+      setCartMessage("Added to cart successfully!");
       setTimeout(() => setCartMessage(""), 3000);
     } catch (error) {
       console.log("Cart Error:", error.response?.data || error.message);
@@ -60,14 +61,24 @@ function ShowAllCats() {
     }
   };
 
+  const filteredCats = cats.filter((cat) => {
+    const smallSearch = searchCat.toLowerCase();
+    return (
+      (cat.name && cat.name.toLowerCase().includes(smallSearch)) ||
+      (cat.breed && cat.breed.toLowerCase().includes(smallSearch))
+    );
+  });
+
   return (
-    <>
-      <Header />
+    <div className="galleryPageContainer">
+      <Header searchCat={searchCat} setSearchCat={setSearchCat} />
+      {cartMessage && <div className="cartAlertMessage">{cartMessage}</div>}
       <div className="cardContainer">
-        {cats.map((data) => (
+        {filteredCats.map((data) => (
           <div key={data._id} className="cardWrapper">
             <Card
               key={data._id}
+              image={data.image}
               name={data.name}
               age={data.age}
               breed={data.breed}
@@ -92,7 +103,7 @@ function ShowAllCats() {
           </div>
         ))}
       </div>
-    </>
+    </div>
   );
 }
 export default ShowAllCats;
