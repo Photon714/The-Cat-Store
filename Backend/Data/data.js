@@ -6,7 +6,7 @@ const cats = [
     age: 2, // 2 months old
     price: 450,
     description: "A fluffy, gentle little cloud who loves to nap in sunbeams.",
-    image: "https://loremflickr.com/400/400/persian,kitten",
+    image: "/images/persian.jpg",
   },
   {
     name: "Milo",
@@ -15,7 +15,7 @@ const cats = [
     price: 600,
     description:
       "Already getting big! Very playful and has adorable ear tufts.",
-    image: "https://loremflickr.com/400/400/mainecoon,kitten",
+    image: "/images/mainecoon-3.jpg",
   },
   {
     name: "Oliver",
@@ -24,7 +24,7 @@ const cats = [
     price: 400,
     description:
       "Very vocal and affectionate. Will follow you everywhere you go.",
-    image: "https://loremflickr.com/400/400/siamese,kitten",
+    image: "/images/siaseme-2.jpg",
   },
   {
     name: "Leo",
@@ -32,7 +32,7 @@ const cats = [
     age: 4,
     price: 850,
     description: "Extremely energetic with beautiful leopard-like spots.",
-    image: "https://loremflickr.com/400/400/bengal,kitten",
+    image: "/images/bengal-4.jpg",
   },
   {
     name: "Bella",
@@ -41,7 +41,7 @@ const cats = [
     price: 550,
     description:
       "True to her breed, she goes completely limp and purrs when picked up.",
-    image: "https://loremflickr.com/400/400/ragdoll,kitten",
+    image: "/images/rugdoll-3.jpg",
   },
   {
     name: "Charlie",
@@ -49,7 +49,7 @@ const cats = [
     age: 2,
     price: 500,
     description: "Chubby cheeks and a very calm, polite demeanor.",
-    image: "https://loremflickr.com/400/400/britishshorthair,kitten",
+    image: "/images/britishshort-2.jpg",
   },
   {
     name: "Chloe",
@@ -57,7 +57,7 @@ const cats = [
     age: 3,
     price: 700,
     description: "Sweet girl with perfectly folded ears and big, round eyes.",
-    image: "https://loremflickr.com/400/400/scottishfold,kitten",
+    image: "/images/fold-3.jpg",
   },
   {
     name: "Max",
@@ -66,7 +66,7 @@ const cats = [
     price: 900,
     description:
       "Hairless, warm like a little peach, and absolutely loves cuddles.",
-    image: "https://loremflickr.com/400/400/sphynx,kitten",
+    image: "/images/sphynx-4.jpg",
   },
   {
     name: "Lily",
@@ -75,7 +75,7 @@ const cats = [
     price: 650,
     description:
       "Highly intelligent and curious. Will investigate every box in your house.",
-    image: "https://loremflickr.com/400/400/abyssinian,kitten",
+    image: "/images/abyss-3.jpg",
   },
   {
     name: "Nala",
@@ -84,7 +84,7 @@ const cats = [
     price: 450,
     description:
       "Shy at first, but incredibly loyal with a beautiful silver coat.",
-    image: "https://loremflickr.com/400/400/russianblue,kitten",
+    image: "/images/russianblue-2.jpg",
   },
   {
     name: "Simba",
@@ -93,7 +93,7 @@ const cats = [
     price: 800,
     description:
       "Tiny legs, massive personality. Loves to zoom down the hallways.",
-    image: "https://loremflickr.com/400/400/munchkin,kitten",
+    image: "/images/munchkin-4.jpg",
   },
   {
     name: "Cleo",
@@ -102,7 +102,7 @@ const cats = [
     price: 300,
     description:
       "A classic tabby kitten with a great balance of playfulness and chill.",
-    image: "https://loremflickr.com/400/400/tabby,kitten",
+    image: "/images/American-Shorthair-cat-2.jpg",
   },
   {
     name: "Daisy",
@@ -110,7 +110,7 @@ const cats = [
     age: 3,
     price: 550,
     description: "Thick, waterproof coat. Loves climbing high furniture.",
-    image: "https://loremflickr.com/400/400/norwegianforest,kitten",
+    image: "/images/norwey-3.jpg",
   },
   {
     name: "Jasper",
@@ -118,15 +118,33 @@ const cats = [
     age: 4,
     price: 600,
     description: "Hypoallergenic coat! Very sturdy and loves playing in water.",
-    image: "https://loremflickr.com/400/400/siberian,kitten",
+    image: "/images/siberina-4.jpg",
   },
+  {
+    name: "Sakamoto",
+    breed: "unknown",
+    age: "240",
+    price: "9999",
+    description:
+      "Sakamoto is loyal to the developer of this store NOT FOR SALE",
+    image: "/images/sakamoto-nichijou-1.jpg",
+  },
+
   {
     name: "Oscar",
     breed: "Birman",
     age: 3,
     price: 500,
     description: "Stunning blue eyes and little white 'gloves' on his paws.",
-    image: "https://loremflickr.com/400/400/birman,kitten",
+    image: "/images/birman-3.jpg",
+  },
+  {
+    name: "Mao Mao",
+    breed: "unique",
+    age: "216",
+    price: "9999",
+    description: "Mao Mao is a unique type of cat found near Jinshi only ",
+    image: "/images/maomao.jpg",
   },
   {
     name: "Mia",
@@ -134,7 +152,7 @@ const cats = [
     age: 2,
     price: 450,
     description: "A gorgeous mix of Persian fluff and Siamese colors.",
-    image: "https://loremflickr.com/400/400/himalayan,kitten",
+    image: "/images/himalayn2.jpg",
   },
 
   // --- THE ADULTS ---
@@ -145,7 +163,7 @@ const cats = [
     price: 250,
     description:
       "A majestic, fully-grown gentle giant. Very relaxed and great with kids.",
-    image: "https://loremflickr.com/400/400/mainecoon,cat",
+    image: "/images/mainecoon-3.jpg",
   },
   {
     name: "Shadow",
@@ -153,7 +171,7 @@ const cats = [
     age: 24, // 2 years old
     price: 150,
     description: "Looks like a mini panther. Very affectionate lap cat.",
-    image: "https://loremflickr.com/400/400/blackcat",
+    image: "/images/bombay.jpg",
   },
   {
     name: "Garfield",
@@ -162,7 +180,7 @@ const cats = [
     price: 200,
     description:
       "Lazy, loves food, and prefers sleeping over playing. Low energy.",
-    image: "https://loremflickr.com/400/400/orange,cat",
+    image: "/images/orange-exotic.jpg",
   },
   {
     name: "Stella",
@@ -171,7 +189,7 @@ const cats = [
     price: 300,
     description:
       "A young adult who is already fully trained and incredibly cuddly.",
-    image: "https://loremflickr.com/400/400/ragdoll,cat",
+    image: "/images/ragdoll-1.5y.jpg",
   },
 ];
 
