@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Header2 from "./Header2.jsx";
+import Header from "./header.jsx";
 import "../css/cartCss.css";
 import { getCart } from "../Services/cart.js";
 import { updateCartQuantity } from "../Services/cart.js";
 import { deleteTheCat } from "../Services/cart.js";
+import { VanishCart } from "../Services/cart.js";
 
 function ShowCart() {
   const [cartBillis, setCartBillis] = useState([]);
@@ -134,10 +135,20 @@ function ShowCart() {
       [catId]: newName,
     }));
   };
+  const handleVanish = async () => {
+    try {
+      const token = localStorage.getItem("accessToken");
+      await VanishCart(token);
+      const freshCart = await getCart(token);
+      setCartBillis(freshCart?.items || []);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div className="cart-page">
-      <Header2 />
+      <Header hideSearch={true} isCartPage={true} />
       <div className="cart-content">
         <h1>Your Cart</h1>
 
@@ -176,35 +187,25 @@ function ShowCart() {
                       <p className="item-specs">
                         <strong>Breed</strong>: {cat.breed || "Unknown"}
                       </p>
-                      <p className="item-stock">In Stock</p>
+                      <p className="item-stock">{cat.description}</p>
 
-                      <div
-                        className="item-fun-addon"
-                        style={{ fontSize: "13px", marginBottom: "15px" }}
-                      >
-                        <label
-                          style={{ display: "flex", alignItems: "center" }}
-                        >
-                          <span style={{ marginRight: "8px" }}>
-                            🐱 Custom Name Tag:
-                          </span>
-                          <input
-                            type="text"
-                            placeholder="e.g. Mr. Whiskers"
-                            value={customName[actualCatId] || ""}
-                            style={{
-                              border: "1px solid #ccc",
-                              borderRadius: "4px",
-                              padding: "4px 8px",
-                              fontSize: "12px",
-                              outline: "none",
-                            }}
-                            onKeyDown={handleKeydown}
-                            onChange={(e) =>
-                              handleCustomName(actualCatId, e.target.value)
-                            }
-                          />
-                        </label>
+                      {/* Notice how clean this wrapper is now! */}
+                      <div className="custom-tag-wrapper">
+                        <span className="custom-tag-label">
+                          <span className="tag-icon">🐱</span> Custom Name Tag:
+                        </span>
+
+                        <input
+                          type="text"
+                          placeholder="e.g. Mr. Whiskers"
+                          value={customName[actualCatId] || ""}
+                          className="custom-tag-input"
+                          /* Deleted the style={{...}} block from here! */
+                          onKeyDown={handleKeydown}
+                          onChange={(e) =>
+                            handleCustomName(actualCatId, e.target.value)
+                          }
+                        />
                       </div>
 
                       <div className="item-actions">
@@ -260,6 +261,9 @@ function ShowCart() {
               Subtotal ({totalItems} items): <strong>${cartSubtotal}</strong>
             </div>
             <div className="cart-checkout-container">
+              <button className="vanish-btn" onClick={handleVanish}>
+                Vanish the Cart
+              </button>
               <button
                 className={`order-meow-btn main-order-btn ${isOrdered ? "success-btn" : ""}`}
                 onClick={() => {
