@@ -4,12 +4,12 @@ import "../css/Card.css";
 function Card(props) {
   return (
     <div className="card">
-      <img className="catImg" src={catimg} alt="Acatimg"></img>
+      <img className="catImg" src={props.image} alt="Acatimg"></img>
       <div className="right">
         <p className="catName">{props.name}</p>
         <p className="breed">{props.breed}</p>
-        <p className="age">{props.age}</p>
-        <p className="cost">{props.cost}</p>
+        <p className="age">{props.age} months</p>
+        <p className="cost">${props.cost}</p>
         <p className="desc">{props.description}</p>
       </div>
     </div>
