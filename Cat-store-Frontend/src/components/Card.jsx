@@ -11,6 +11,9 @@ function Card(props) {
         <p className="age">{props.age} months</p>
         <p className="cost">${props.cost}</p>
         <p className="desc">{props.description}</p>
+        <p className="req">
+          *Want more cats from the same breed ? Increase the quantity.
+        </p>
       </div>
     </div>
   );

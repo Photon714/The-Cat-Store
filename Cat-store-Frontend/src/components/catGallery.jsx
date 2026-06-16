@@ -96,6 +96,7 @@ function ShowAllCats() {
                 type="number"
                 min="1"
                 className="quantityInput"
+                placeholder="hii"
                 value={quantities[data._id] ?? 1} // Value comes from our state object
                 onChange={(e) => handleQuantityChange(data._id, e.target.value)}
               />

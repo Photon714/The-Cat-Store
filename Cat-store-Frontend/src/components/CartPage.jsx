@@ -207,7 +207,10 @@ function ShowCart() {
                           }
                         />
                       </div>
-
+                      <p className="req">
+                        *Want more cats from the same breed ? Increase the
+                        quantity.
+                      </p>
                       <div className="item-actions">
                         <div className="qty-select-container">
                           Qty:
