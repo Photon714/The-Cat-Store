@@ -1,6 +1,8 @@
 export const fetchCats = async () => {
   try {
-    const response = await fetch("http://localhost:5001/api/cat");
+    const response = await fetch(
+      "https://the-cat-store-backend.onrender.com/api/cat",
+    );
     if (!response.ok) {
       throw new Error("HTTP error ! status: ${response.status}");
     } else {

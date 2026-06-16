@@ -43,7 +43,7 @@ function ShowAllCats() {
     }
     try {
       const response = await axios.post(
-        "http://localhost:5001/api/cart/add",
+        "https://the-cat-store-backend.onrender.com/api/cart/add",
         { catId: catId, quantity: quan },
         {
           headers: {

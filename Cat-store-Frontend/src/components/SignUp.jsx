@@ -24,7 +24,7 @@ function SignUp() {
     try {
       setErrorMessage("");
       const response = await axios.post(
-        "http://localhost:5001/api/user/register",
+        "https://the-cat-store-backend.onrender.com/api/user/register",
         data,
       );
       console.log(

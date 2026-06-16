@@ -2,11 +2,14 @@ import axios from "axios";
 
 export const getCart = async (accessToken) => {
   try {
-    const response = await axios.get("http://localhost:5001/api/cart", {
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
+    const response = await axios.get(
+      "https://the-cat-store-backend.onrender.com/api/cart",
+      {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
       },
-    });
+    );
     console.log("cart fetched");
     return response.data;
   } catch (error) {
@@ -26,7 +29,7 @@ export const updateCartQuantity = async (accessToken, itemId, quantity) => {
       quantity: quantity,
     };
     const response = await axios.put(
-      "http://localhost:5001/api/cart/change",
+      "https://the-cat-store-backend.onrender.com/api/cart/change",
       body,
       {
         headers: {
@@ -49,7 +52,7 @@ export const updateCartQuantity = async (accessToken, itemId, quantity) => {
 export const deleteTheCat = async (accessToken, itemId) => {
   try {
     const response = await axios.delete(
-      "http://localhost:5001/api/cart/remove",
+      "https://the-cat-store-backend.onrender.com/api/cart/remove",
       {
         headers: {
           Authorization: `Bearer ${accessToken}`,
@@ -72,9 +75,12 @@ export const deleteTheCat = async (accessToken, itemId) => {
 };
 
 export const VanishCart = async (accessToken) => {
-  const response = await axios.delete("http://localhost:5001/api/cart/vanish", {
-    headers: {
-      Authorization: `Bearer ${accessToken}`,
+  const response = await axios.delete(
+    "https://the-cat-store-backend.onrender.com/api/cart/vanish",
+    {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
     },
-  });
+  );
 };
