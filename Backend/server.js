@@ -7,7 +7,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: "https://the-cat-store-backend.onrender.com",
+    origin: "https://the-cat-store-frontend.onrender.com",
   }),
 );
 connectDb();
