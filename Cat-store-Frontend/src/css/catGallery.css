@@ -1,11 +1,10 @@
 .cardContainer {
   display: grid;
-  /* This is the magic line: it creates exactly 3 equal-sized columns (1 fraction each) */
-  grid-template-columns: repeat(3, 1fr);
-  gap: 150px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
   padding: 20px;
-  max-width: 1900px; /* Optional: Stops the grid from stretching infinitely on massive screens */
-  margin: 0 auto; /* Centers the whole gallery on the page */
+  max-width: 1200px;
+  margin: 0 auto;
 }
 /* Keeps the card and button stacked neatly together in their grid cell */
 .cardWrapper {
